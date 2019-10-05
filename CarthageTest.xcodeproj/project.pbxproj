@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600FF50323494B8300A8A4D1 /* Bow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 600FF50223494B8300A8A4D1 /* Bow.framework */; };
+		600FF50423494B8300A8A4D1 /* Bow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 600FF50223494B8300A8A4D1 /* Bow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		60A197852345878700D188E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A197842345878700D188E8 /* AppDelegate.swift */; };
 		60A197872345878700D188E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A197862345878700D188E8 /* SceneDelegate.swift */; };
 		60A197892345878700D188E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A197882345878700D188E8 /* ContentView.swift */; };
@@ -15,7 +17,22 @@
 		60A197912345878900D188E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A1978F2345878900D188E8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		60A1979C23458A7100D188E8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				600FF50423494B8300A8A4D1 /* Bow.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		600FF50223494B8300A8A4D1 /* Bow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bow.framework; path = Carthage/Build/iOS/Bow.framework; sourceTree = "<group>"; };
 		60A197812345878700D188E8 /* CarthageTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarthageTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A197842345878700D188E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60A197862345878700D188E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +41,7 @@
 		60A1978D2345878900D188E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		60A197902345878900D188E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A197922345878900D188E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60A1979923458A7100D188E8 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				600FF50323494B8300A8A4D1 /* Bow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,7 @@
 			children = (
 				60A197832345878700D188E8 /* CarthageTest */,
 				60A197822345878700D188E8 /* Products */,
+				60A1979823458A7100D188E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +95,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		60A1979823458A7100D188E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				600FF50223494B8300A8A4D1 /* Bow.framework */,
+				60A1979923458A7100D188E8 /* RxBlocking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +114,8 @@
 				60A1977D2345878700D188E8 /* Sources */,
 				60A1977E2345878700D188E8 /* Frameworks */,
 				60A1977F2345878700D188E8 /* Resources */,
+				60A1979C23458A7100D188E8 /* Embed Frameworks */,
+				60A1979D23458AA900D188E8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -140,6 +171,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60A1979D23458AA900D188E8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Bow.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60A1977D2345878700D188E8 /* Sources */ = {
@@ -287,6 +339,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CarthageTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +362,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CarthageTest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
